@@ -1,8 +1,8 @@
 ##Parameters
-$source = "\\server\D$\ServerFolders\"
-$destination = "\\rcdc01\D$\"
+$source = "C:\source"
+$destination = "C:\Destination"
 
-$folders = 'Quickbooks', 'Users', 'Company'
+$folders = 'QB', 'IIS'
 
 ##get-childitem -path c:\images | measure-object -Property Length -Sum
 
