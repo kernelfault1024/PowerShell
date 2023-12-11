@@ -1,6 +1,7 @@
 ##Parameters
-$source = "C:\source"
-$destination = "C:\Destination"
+##Make sure the source and destination paths have a \ at the end
+$source = "C:\source\"
+$destination = "C:\Destination\"
 
 $folders = 'QB', 'IIS'
 
