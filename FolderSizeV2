@@ -1,0 +1,31 @@
+##Parameters
+##Make sure the source and destination paths have a \ at the end
+$source = "C:\source\"
+$destination = "C:\Destination\"
+
+$folders = 'QB', 'IIS'
+
+$info = New-Object System.Collections.ArrayList
+
+$data = foreach ($folder in $folders) {
+    $source_folder = $source + $folder
+    $destination_folder = $destination + $folder
+    ##$size = (get-childitem -path $source_folder -recurse -file | measure-object -Property Length -Sum).Sum
+    $Srcinfo = get-childitem -path $source_folder -recurse -file | measure-object -Property Length -Sum
+    $Dstinfo = get-childitem -path $destination_folder -recurse -file | measure-object -Property Length -Sum
+    ##$count = (get-childitem -path $destination_folder -recurse -file | measure-object -Property Length -Sum).count
+    ##$sizemb = $size / 1024
+    ##Write-Host $Folder $size KB $count Files
+    ##$sourcearrayname += $source_folder
+    ##$sourcearraysize += $size
+    Set-variable -name $folder
+    $folder += $folder
+    $folder += $Srcinfo.Count
+    $folder += $srcinfo.sum
+    $folder += $dstinfo.count
+    $folder += $dstinfo.sum
+    }
+
+    Write-Host $info[0]
+    Write-Host Source: Files: $info[1] Size:  $info[2]
+    Write-host Destin: Files: $info[3]  Size: $info[4]

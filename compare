@@ -1,0 +1,4 @@
+$source = get-childitem -recurse -file -directory -path c:\source
+$dest = get-childitem -recurse -file -directory -path c:\destination
+
+compare-object -referenceobjet $source -differenceobject $dest
