@@ -1,5 +1,7 @@
 $info = get-computerinfo
 
+
+
 $memory = [math]::round($info.CsTotalPhysicalMemory / 1Gb)
 
 Write-Host OS Version: $info.WindowsProductName
@@ -8,3 +10,5 @@ Write-Host Computer Name: $info.CsName
 Write-Host Physical Processors: $info.CsNumberOfProcessors
 Write-Host Logical Processors: $info.CsNumberOfLogicalProcessors
 Write-Host Physicam Memory: $memory GB
+Write-Host Network Addresses: 
+Get-NetIPAddress -AddressFamily ipv4 | format-table
