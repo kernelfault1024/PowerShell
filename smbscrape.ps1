@@ -1,6 +1,9 @@
 $info = get-computerinfo
 
-$report = "$pwd\Report.txt"
+$date = Get-Date
+$formatdate = $date.tostring('yyyyMMdd_HHmmss')
+
+$report = "$pwd\SMBReport$formatdate.txt"
 
 $reportname = 'SMB Share Report'
 
@@ -12,5 +15,5 @@ $reportname >> $report
 
 $compname >> $report
 
-$shares = get-smbshare | where-object -property Name -notlike "*$" >> $report
-$adminshares = get-smbshare | where-object -property Name -like "*$" >> $report
+get-smbshare | where-object -property Name -notlike "*$" >> $report
+get-smbshare | where-object -property Name -like "*$" >> $report
